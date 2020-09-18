@@ -97,20 +97,59 @@ function dogFeeder(weight, age) {
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
 
-  
+// 0 = Rock
+// 1 = Paper
+// 2 = Scissors
+
+function RPS(choice) {
+    aiChoice = Math.floor(Math.random() * 3);
+    if (choice === "Rock") {
+        if (aiChoice === 0) {
+            return "Both Rock. Tie!";
+        } else if (aiChoice === 1) {
+            return "AI chose Paper. You lose!";
+        } else if (aiChoice === 2) {
+            return "AI chose Scissors. You win!";
+        }
+    }
+
+    if (choice === "Paper") {
+        if (aiChoice === 0) {
+            return "AI chose Rock. You win!";
+        } else if (aiChoice === 1) {
+            return "Both chose Paper. Tie!";
+        } else if (aiChoice === 2) {
+            return "AI chose Scissors. You lose!";
+        }
+    }
+
+    if (choice === "Scissors") {
+        if (aiChoice === 0) {
+            return "AI chose Rock. You lose!";
+        } else if (aiChoice === 1) {
+            return "AI chose Paper. You win!";
+        } else if (aiChoice === 2) {
+            return "Both Scissors. Tie!";
+        }
+    }
+}
   
 
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
 
-
+function convertKM(KM) {
+    return KM / 1.609344 + " Miles";
+}
 
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
-  
 
+function convertFeet(feet) {
+    return feet * 30.48 + " Centimeters";
+}
 
 
 
@@ -118,8 +157,13 @@ function dogFeeder(weight, age) {
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
-  
 
+function annoyingSong(startingNumber) {
+
+    for (startingNumber >= 1; startingNumber--;) {
+        console.log(startingNumber , " bottles of soda on the wall, " , startingNumber , " bottles of soda, take one down pass it around, " , startingNumber , " bottles of soda on the wall!");
+    }
+}
 
 
 
@@ -131,10 +175,24 @@ function dogFeeder(weight, age) {
 //70s should be Cs 
 //60s should be D 
 //and anything below 60 should be F
-  
 
-  
-  
+function grade(gradeNumber) {
+    if (gradeNumber > 100 || gradeNumber < 1) {
+        return "Please enter a number between 1 and 100";
+    } else if (gradeNumber >= 90) {
+        return "A";
+    } else if (gradeNumber >= 80) {
+        return "B";
+    } else if (gradeNumber >= 70) {
+        return "C";
+    } else if (gradeNumber >= 60) {
+        return "D";
+    } else if (gradeNumber < 60) {
+        return "F"
+    }
+}
+
+
 
 /************************************************************** Stretch **************************************************************/
 //Create a function that counts the number of vowels within a string. It should handle both capitalized and uncapitalized vowels.
