@@ -1,24 +1,34 @@
 /************************************************************** Task 1: Warm-up! **************************************************************/
 //Task a: declare a variable called votingAge, console log true if age > 18 (no function required)
 
-
+let votingAge = 0;
+if (votingAge > 18) {
+    console.log("true")
+}
 
 
 
 //Task b: declare a variable and then use a conditional to change the value of that variable based on the value assigned to a second variable (no function required)
 
-
+let var1 = false;
+let var2 = false;
+if (var2 === false) {
+    var1 = true;
+}
 
 
 
 //Task c: Convert string ("1999") to integer (1999)  (no function required) // hint look up the Number method
 
-
+let string = "1999";
+let integer = Number(string);
 
 
 
 //Task d: Write a function to multiply a*b 
-
+function multiplyThis(a, b) {
+    console.log(a*b);
+}
 
 
 
@@ -27,7 +37,9 @@
 //Age in Dog years
 //write a function that takes your age and returns it to you in dog years - they say that 1 human year is equal to seven dog years 
 
-
+function ageInDogYears(age) {
+    console.log(Math.floor(age / 7));
+}
 
 
 
@@ -48,8 +60,33 @@
 // 7 - 12 months 4% of their body weight
 
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
-  
 
+
+function dogFeeder(weight, age) {
+    if (age > 16 && age < 0.33) {
+        return 10/100*weight;
+    }
+    if (age > 0.34 && age < 0.58) {
+        return 5/100*weight;
+    }
+    if (age > 0.59 && age < 1) {
+        return 4/100*weight;
+    }
+    if (age >= 1) {
+        if (weight <= 5) {
+            return 5/100*weight;
+        }
+        if (weight > 5 && weight <= 10) {
+            return 4/100*weight;
+        }
+        if (weight > 10 && weight <= 15) {
+            return 3/10*weight;
+        }
+        if (weight > 15) {
+            return 2/100*weight;
+        }
+    }
+}
 
 
 
@@ -60,20 +97,59 @@
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
 
-  
+// 0 = Rock
+// 1 = Paper
+// 2 = Scissors
+
+function RPS(choice) {
+    aiChoice = Math.floor(Math.random() * 3);
+    if (choice === "Rock") {
+        if (aiChoice === 0) {
+            return "Both Rock. Tie!";
+        } else if (aiChoice === 1) {
+            return "AI chose Paper. You lose!";
+        } else if (aiChoice === 2) {
+            return "AI chose Scissors. You win!";
+        }
+    }
+
+    if (choice === "Paper") {
+        if (aiChoice === 0) {
+            return "AI chose Rock. You win!";
+        } else if (aiChoice === 1) {
+            return "Both chose Paper. Tie!";
+        } else if (aiChoice === 2) {
+            return "AI chose Scissors. You lose!";
+        }
+    }
+
+    if (choice === "Scissors") {
+        if (aiChoice === 0) {
+            return "AI chose Rock. You lose!";
+        } else if (aiChoice === 1) {
+            return "AI chose Paper. You win!";
+        } else if (aiChoice === 2) {
+            return "Both Scissors. Tie!";
+        }
+    }
+}
   
 
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
 
-
+function convertKM(KM) {
+    return KM / 1.609344 + " Miles";
+}
 
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
-  
 
+function convertFeet(feet) {
+    return feet * 30.48 + " Centimeters";
+}
 
 
 
@@ -81,8 +157,13 @@
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
-  
 
+function annoyingSong(startingNumber) {
+
+    for (startingNumber >= 1; startingNumber--;) {
+        console.log(startingNumber , " bottles of soda on the wall, " , startingNumber , " bottles of soda, take one down pass it around, " , startingNumber , " bottles of soda on the wall!");
+    }
+}
 
 
 
@@ -94,17 +175,43 @@
 //70s should be Cs 
 //60s should be D 
 //and anything below 60 should be F
-  
 
-  
-  
+function grade(gradeNumber) {
+    if (gradeNumber > 100 || gradeNumber < 1) {
+        return "Please enter a number between 1 and 100";
+    } else if (gradeNumber >= 90) {
+        return "A";
+    } else if (gradeNumber >= 80) {
+        return "B";
+    } else if (gradeNumber >= 70) {
+        return "C";
+    } else if (gradeNumber >= 60) {
+        return "D";
+    } else if (gradeNumber < 60) {
+        return "F"
+    }
+}
+
+
 
 /************************************************************** Stretch **************************************************************/
 //Create a function that counts the number of vowels within a string. It should handle both capitalized and uncapitalized vowels.
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method
 
-
+function vowelCount(input) {
+    var vowels = 0;
+    for (i = 0; i < input.length; i++) {
+        if (input.charAt(i).toUpperCase() === "A" || // Converts letters to uppercase and compares.
+            input.charAt(i).toUpperCase() === "E" ||
+            input.charAt(i).toUpperCase() === "I" ||
+            input.charAt(i).toUpperCase() === "O" ||
+            input.charAt(i).toUpperCase() === "U") {
+                vowels++;
+        }
+    }
+    return "Number of Vowels is " + vowels;
+}
 
 
 
