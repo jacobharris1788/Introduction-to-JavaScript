@@ -199,7 +199,19 @@ function grade(gradeNumber) {
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method
 
-
+function vowelCount(input) {
+    var vowels = 0;
+    for (i = 0; i < input.length; i++) {
+        if (input.charAt(i).toUpperCase() === "A" || // Converts letters to uppercase and compares.
+            input.charAt(i).toUpperCase() === "E" ||
+            input.charAt(i).toUpperCase() === "I" ||
+            input.charAt(i).toUpperCase() === "O" ||
+            input.charAt(i).toUpperCase() === "U") {
+                vowels++;
+        }
+    }
+    return "Number of Vowels is " + vowels;
+}
 
 
 
